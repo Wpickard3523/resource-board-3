@@ -1951,7 +1951,7 @@ async function saveBoard() {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'X-Master-Key': JB_API_KEY
+        'X-Access-Key': JB_API_KEY
       },
       body: JSON.stringify(snapshot)
     });
@@ -1983,7 +1983,7 @@ async function loadBoard() {
   syncStatus('Loading…', 'var(--orange)');
   try {
     const resp = await fetch(`${JB_BASE}/${JB_BIN_ID}/latest`, {
-      headers: {'X-Master-Key': JB_API_KEY}
+      headers: {'X-Access-Key': JB_API_KEY}
     });
     if (!resp.ok) {
       const err = await resp.json().catch(() => ({}));
